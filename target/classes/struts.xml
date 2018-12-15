@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+	<constant name="struts.convention.action.disableJarScanning" value="true"/>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<!-- 开启动态调用函数，这个方法在struts2里面不推荐，可是在这里却可以实现动态方法的调用，不用自写action了 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="true" /><!-- struts2 调试模式 -->
+	<!-- 进行扫描的根包，该包会被扫描成action -->
+	<constant name="struts.convention.action.packages" value="bin.Http.Controllers" />
+	<!-- 结果result页面存放位置 -->
+	<constant name="struts.convention.result.path" value="/view" />
+	<!-- Action类文件重新自动加载 -->
+	<constant name="struts.convention.classes.reload" value="true" />
+	<!--用于生成action名字时的分隔符，比如DemoCustAction会被映射成为demo_cust,同时用于形成返回文件，比如访问DemoAction，return的值为input，插件会去指定不睦下，查找demo_input.jsp文件 -->
+	<!--<constant name="struts.convention.action.name.separator" value="_" />-->
+	<package name="base" extends="json-default,struts-default">
+		<!-- 这里可以设置一些全局的返回值映射关系等 -->
+	</package>
+</struts> 
