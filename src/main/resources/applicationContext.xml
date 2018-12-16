@@ -62,7 +62,7 @@
 		<!-- 指定Entity实体类包路径 -->
 		<property name="packagesToScan">
 			<array>
-				<value>Models</value>
+				<value>Http.Models</value>
 			</array>
 		</property>
 		<!-- 指定JPA属性；如Hibernate中指定是否显示SQL的是否显示、方言等 -->
@@ -77,7 +77,7 @@
 		</property>
 	</bean>
 	<!-- 自动扫描并注入Spring Data JPA -->
-	<jpa:repositories base-package="bin.Http.Repositories"
+	<jpa:repositories base-package="Http.Repositories"
 		entity-manager-factory-ref="entityManagerFactory"
 		transaction-manager-ref="transactionManager">
 	</jpa:repositories>
