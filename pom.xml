@@ -16,11 +16,25 @@
   <properties>
     <spring-data-jpa.version>1.9.4.RELEASE</spring-data-jpa.version>
     <spring-framework.version>4.1.6.RELEASE</spring-framework.version>
-    <org.springframework.version>4.1.6.RELEASE</org.springframework.version>
-    <org.springframework.security.version>4.1.6.RELEASE</org.springframework.security.version>
+    <org.springframework.security.version>3.2.3.RELEASE</org.springframework.security.version>
+    <org.springframework.version>4.0.4.RELEASE</org.springframework.version>
+    <slf4j.version>1.7.7</slf4j.version>
+    <log4j.version>1.2.17</log4j.version>
+    <struts2.version>2.3.24</struts2.version>
     <jstl.version>1.2</jstl.version>
     <hibernate.version>4.3.6.Final</hibernate.version>
-    <struts2.version>2.3.24</struts2.version>
+
+    <!--<spring-data-jpa.version>1.9.4.RELEASE</spring-data-jpa.version>-->
+    <!--<spring-framework.version>4.1.6.RELEASE</spring-framework.version>-->
+    <!--<org.springframework.version>4.1.6.RELEASE</org.springframework.version>-->
+    <!--<org.springframework.security.version>4.1.6.RELEASE</org.springframework.security.version>-->
+    <!--<jstl.version>1.2</jstl.version>-->
+    <!--<hibernate.version>4.3.6.Final</hibernate.version>-->
+    <!--<struts2.version>2.3.24</struts2.version>-->
+    <!--jdk驱动-->
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>10</maven.compiler.source>
+    <maven.compiler.target>10</maven.compiler.target>
   </properties>
   <dependencies>
     <!-- Spring-core -->
@@ -72,11 +86,11 @@
       <version>${spring-framework.version}</version>
     </dependency>
     <!-- -->
-    <dependency>
-      <groupId>org.springframework.security</groupId>
-      <artifactId>spring-security-web</artifactId>
-      <version>${org.springframework.security.version}</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.springframework.security</groupId>-->
+      <!--<artifactId>spring-security-web</artifactId>-->
+      <!--<version>${org.springframework.security.version}</version>-->
+    <!--</dependency>-->
 
 
     <dependency>
