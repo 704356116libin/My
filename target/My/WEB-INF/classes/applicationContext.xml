@@ -26,7 +26,7 @@
     <context:annotation-config /> 
     <!-- 如果spring用了jpa，并且类型为LocalContainerEntityManagerFactoryBean，则组件注册在此配置文件出现即可，其余配置文件可忽略 
 		使用component来替代annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入\ -->
-	<context:component-scan base-package="java" />
+	<context:component-scan base-package="bin" />
     <!-- 加载数据库配置文件 -->
 	<context:property-placeholder file-encoding="UTF-8" location="classpath:db.properties"/>
 	<!-- 配置c3p0连接池 -->
@@ -53,38 +53,38 @@
 	<!--&lt;!&ndash; Hibernate对Jpa的实现 &ndash;&gt;-->
 	<bean id="hibernateJpaVendorAdapter"
 		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
-	<!--<bean id="entityManagerFactory"-->
-		<!--class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">-->
-		<!--&lt;!&ndash; 指定数据源 &ndash;&gt;-->
-		<!--<property name="dataSource" ref="dataSource" />-->
-		<!--&lt;!&ndash; 指定Jpa持久化实现厂商类,这里以Hibernate为例 &ndash;&gt;-->
-		<!--<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter" />-->
-		<!--&lt;!&ndash; 指定Entity实体类包路径 &ndash;&gt;-->
-		<!--<property name="packagesToScan">-->
-			<!--<array>-->
-				<!--<value>bin.Models</value>-->
-			<!--</array>-->
-		<!--</property>-->
-		<!--&lt;!&ndash; 指定JPA属性；如Hibernate中指定是否显示SQL的是否显示、方言等 &ndash;&gt;-->
-		<!--<property name="jpaProperties">-->
-			<!--<props>-->
-				<!--<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>-->
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<!-- 指定数据源 -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- 指定Jpa持久化实现厂商类,这里以Hibernate为例 -->
+		<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter" />
+		<!-- 指定Entity实体类包路径 -->
+		<property name="packagesToScan">
+			<array>
+				<value>bin.Models</value>
+			</array>
+		</property>
+		<!-- 指定JPA属性；如Hibernate中指定是否显示SQL的是否显示、方言等 -->
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<!--<prop key="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</prop>-->
-				<!--<prop key="hibernate.show_sql">true</prop>-->
-				<!--<prop key="hibernate.format_sql">true</prop>-->
-				<!--<prop key="hibernate.hbm2ddl.auto">update</prop>-->
-			<!--</props>-->
-		<!--</property>-->
-	<!--</bean>-->
-	<!--&lt;!&ndash; 配置事务管理器 &ndash;&gt;-->
-	<!--<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">-->
-		<!--<property name="entityManagerFactory" ref="entityManagerFactory" />-->
-	<!--</bean>-->
-	<!--&lt;!&ndash;&lt;!&ndash; 自动扫描并注入Spring Data JPA &ndash;&gt;&ndash;&gt;-->
-	<!--<jpa:repositories base-package="bin.Repositories"-->
-		<!--entity-manager-factory-ref="entityManagerFactory"-->
-		<!--transaction-manager-ref="transactionManager">-->
-	<!--</jpa:repositories>-->
-	<!--<tx:annotation-driven transaction-manager="transactionManager"-->
-		<!--proxy-target-class="true" />-->
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	<!--&lt;!&ndash; 自动扫描并注入Spring Data JPA &ndash;&gt;-->
+	<jpa:repositories base-package="bin.Repositories"
+		entity-manager-factory-ref="entityManagerFactory"
+		transaction-manager-ref="transactionManager">
+	</jpa:repositories>
+	<tx:annotation-driven transaction-manager="transactionManager"
+		proxy-target-class="true" />
 	</beans>

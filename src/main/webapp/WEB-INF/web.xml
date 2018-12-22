@@ -17,6 +17,13 @@
   <filter>
     <filter-name>struts2</filter-name>
     <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+      <!--零配置需在filter中指定Action包的位置  -->
+      <!--<init-param>-->
+          <!--<param-name>bin.Http.Controllers</param-name>-->
+
+          <!--&lt;!&ndash;零配置Action包的位置  &ndash;&gt;-->
+          <!--<param-value>com.test.action.AnnotationAction</param-value>-->
+      <!--</init-param>-->
   </filter>
   <filter-mapping>
     <filter-name>struts2</filter-name>
