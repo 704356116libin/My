@@ -30,29 +30,29 @@
     <!-- 加载数据库配置文件 -->
 	<context:property-placeholder file-encoding="UTF-8" location="classpath:db.properties"/>
 	<!-- 配置c3p0连接池 -->
-	<!--<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">-->
-		<!--<property name="driverClass" value="${jdbc.driver}" />-->
-		<!--<property name="jdbcUrl" value="${jdbc.url}" />-->
-		<!--<property name="user" value="${jdbc.username}" />-->
-		<!--<property name="password" value="${jdbc.password}" />-->
-		<!--&lt;!&ndash;初始化时获取一个连接，取值应在minPoolSize与maxPoolSize之间。Default: 1 &ndash;&gt;-->
-		<!--<property name="initialPoolSize" value="1" />-->
-		<!--&lt;!&ndash;连接池中保留的最大连接数。Default: 15 &ndash;&gt;-->
-		<!--<property name="maxPoolSize" value="20" />-->
-		<!--&lt;!&ndash;当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 &ndash;&gt;-->
-		<!--<property name="acquireIncrement" value="3" />-->
-		<!--&lt;!&ndash;最大空闲时间,60秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 &ndash;&gt;-->
-		<!--<property name="maxIdleTime" value="10000" />-->
-			<!--&lt;!&ndash;定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 &ndash;&gt;-->
-		<!--<property name="acquireRetryAttempts" value="30" />-->
-		<!--&lt;!&ndash;两次连接中间隔时间，单位毫秒。Default: 1000 &ndash;&gt;-->
-		<!--<property name="acquireRetryDelay" value="1000" />-->
-	<!--</bean>-->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${jdbc.driver}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+		<property name="user" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<!--初始化时获取一个连接，取值应在minPoolSize与maxPoolSize之间。Default: 1 -->
+		<property name="initialPoolSize" value="1" />
+		<!--连接池中保留的最大连接数。Default: 15 -->
+		<property name="maxPoolSize" value="20" />
+		<!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。Default: 3 -->
+		<property name="acquireIncrement" value="3" />
+		<!--最大空闲时间,60秒内未使用则连接被丢弃。若为0则永不丢弃。Default: 0 -->
+		<property name="maxIdleTime" value="10000" />
+			<!--定义在从数据库获取新连接失败后重复尝试的次数。Default: 30 -->
+		<property name="acquireRetryAttempts" value="30" />
+		<!--两次连接中间隔时间，单位毫秒。Default: 1000 -->
+		<property name="acquireRetryDelay" value="1000" />
+	</bean>
 	<!---->
 	<!--&lt;!&ndash; 定义实体管理器工厂 Jpa配置 LocalContainerEntityManagerFactoryBean这个选项Spring扮演了容器的角色。完全掌管JPA &ndash;&gt;-->
 	<!--&lt;!&ndash; Hibernate对Jpa的实现 &ndash;&gt;-->
-	<!--<bean id="hibernateJpaVendorAdapter"-->
-		<!--class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />-->
+	<bean id="hibernateJpaVendorAdapter"
+		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
 	<!--<bean id="entityManagerFactory"-->
 		<!--class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">-->
 		<!--&lt;!&ndash; 指定数据源 &ndash;&gt;-->
@@ -76,16 +76,15 @@
 			<!--</props>-->
 		<!--</property>-->
 	<!--</bean>-->
-	<!--&lt;!&ndash; 自动扫描并注入Spring Data JPA &ndash;&gt;-->
-	<!--<jpa:repositories base-package="bin.Repositories"-->
-		<!--entity-manager-factory-ref="entityManagerFactory"-->
-		<!--transaction-manager-ref="transactionManager">-->
-	<!--</jpa:repositories>-->
-
 	<!--&lt;!&ndash; 配置事务管理器 &ndash;&gt;-->
 	<!--<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">-->
 		<!--<property name="entityManagerFactory" ref="entityManagerFactory" />-->
 	<!--</bean>-->
+	<!--&lt;!&ndash;&lt;!&ndash; 自动扫描并注入Spring Data JPA &ndash;&gt;&ndash;&gt;-->
+	<!--<jpa:repositories base-package="bin.Repositories"-->
+		<!--entity-manager-factory-ref="entityManagerFactory"-->
+		<!--transaction-manager-ref="transactionManager">-->
+	<!--</jpa:repositories>-->
 	<!--<tx:annotation-driven transaction-manager="transactionManager"-->
 		<!--proxy-target-class="true" />-->
 	</beans>
