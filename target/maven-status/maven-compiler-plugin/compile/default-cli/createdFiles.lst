@@ -1,0 +1,4 @@
+bin\Http\Controllers\DemoController.class
+bin\Http\Controllers\test.class
+bin\Models\User.class
+bin\Repositories\UserRepository.class
