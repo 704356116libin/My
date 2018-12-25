@@ -35,6 +35,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	/**
 	 * 查询用户数据总数
 	 */
-	@Query(value = "select count(*)from v_user ",nativeQuery = true)
+	@Query(value = "select count(*)from user ",nativeQuery = true)
 	int getUserCount();
 }
