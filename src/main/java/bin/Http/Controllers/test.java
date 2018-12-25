@@ -11,11 +11,10 @@ public class test {
     @Resource
     private UserRepository userRepository;
     public static void main(String args[]){
-      test test=new test();
-      System.out.println(test.userRepository);
     }
 
     public test() {
         System.out.println("test测试类读取成功");
+        System.out.println(this.userRepository);
     }
 }

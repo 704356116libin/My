@@ -6,7 +6,7 @@ import org.apache.struts2.convention.annotation.*;
 @ParentPackage("base")
 @Namespace(value = "/demo")
 @Results({
-        @Result(name="6666",location = "/index.jsp"),
+        @Result(name="6666",location = "/index1.jsp"),
 })
 public class DemoController extends ActionSupport{
     public DemoController() {
@@ -15,6 +15,7 @@ public class DemoController extends ActionSupport{
 
     @Action("/hello")
     public String demo(){
-       return "6asd666";
+
+       return "6666";
      }
 }
