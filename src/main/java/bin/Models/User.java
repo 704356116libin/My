@@ -24,7 +24,6 @@ public class User implements Serializable {
      *
      */
     private static final long serialVersionUID = 1L;
-    public static final int PAGE_SIZE = 9;//每页的最大数据条数
     @Id//声明此列为主键,作为映射对象的标识符
     /**
      *  @GeneratedValue注解来定义生成策略
@@ -37,10 +36,24 @@ public class User implements Serializable {
     private int id;
     @Column(length = 15, name = "name", nullable = false, unique = true)
     private String name;//用户ID(字母和常用符号组成)
-    @Column(length = 15, name = "password", nullable = false)
+    @Column(length = 13, name = "tel", nullable = false, unique = true)
+    private String tel;//手机号,与用户绑定唯一
+    @Column( name = "email")
+    private String email;//邮箱
+    @Column( name = "email_verified")
+    private int email_verified;
+    @Column( name = "tel_verified")
+    private int tel_verified;
+    @Column( name = "password", nullable = false)
     private String password;//密码,(字母和常用符号组成)
+    @Column( name = "email_token", nullable = false)
+    private String email_token;//y用户邮箱验证token字段
     public User() {
         System.out.println("user读取成功");
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     public int getId() {
@@ -51,12 +64,44 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getUsername() {
+    public String getName() {
         return name;
     }
 
-    public void setUsername(String name) {
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getEmail_verified() {
+        return email_verified;
+    }
+
+    public void setEmail_verified(int email_verified) {
+        this.email_verified = email_verified;
+    }
+
+    public int getTel_verified() {
+        return tel_verified;
+    }
+
+    public void setTel_verified(int tel_verified) {
+        this.tel_verified = tel_verified;
     }
 
     public String getPassword() {
@@ -65,5 +110,13 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getEmail_token() {
+        return email_token;
+    }
+
+    public void setEmail_token(String email_token) {
+        this.email_token = email_token;
     }
 }
