@@ -1,4 +1,6 @@
-bin\Http\Controllers\test.class
+bin\Auth\DemoAuth.class
+bin\Interfaces\UserInterface.class
 bin\Models\User.class
 bin\Http\Controllers\DemoController.class
+bin\Impls\UserImpl.class
 bin\Repositories\UserRepository.class

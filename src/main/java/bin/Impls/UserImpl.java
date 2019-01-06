@@ -1,18 +1,18 @@
-package bin.Tools;
+package bin.Impls;
 
 import bin.Interfaces.UserInterface;
 import bin.Repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-@Service("userTool")
-public class UserTool implements UserInterface {
+@Service("userImpl")
+public class UserImpl implements UserInterface {
 
     @Resource
     private UserRepository userRepository;
 //    private static volatile UserTool userTool;
 
-    private UserTool() {
+    private UserImpl() {
         System.out.println("create " + getClass().getSimpleName());
     }
 

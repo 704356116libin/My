@@ -1,6 +1,6 @@
 package bin.Http.Controllers;
 
-import bin.Tools.UserTool;
+import bin.Impls.UserImpl;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.convention.annotation.*;
 import org.springframework.context.ApplicationContext;
@@ -19,7 +19,7 @@ public class DemoController extends ActionSupport{
     @Action("/hello")
     public String demo(){
         ApplicationContext context=new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
-        UserTool userTool=context.getBean("userTool",UserTool.class);
+        UserImpl userTool=context.getBean("userImpl",UserImpl.class);
         System.out.println(userTool.getUserCount());
        return "6666";
      }

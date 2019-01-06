@@ -40,9 +40,9 @@ public class User implements Serializable {
     private String tel;//手机号,与用户绑定唯一
     @Column( name = "email")
     private String email;//邮箱
-    @Column( name = "email_verified")
+    @Column( name = "email_verified",columnDefinition = "int default 0")
     private int email_verified;
-    @Column( name = "tel_verified")
+    @Column( name = "tel_verified",columnDefinition = "int default 0")
     private int tel_verified;
     @Column( name = "password", nullable = false)
     private String password;//密码,(字母和常用符号组成)
