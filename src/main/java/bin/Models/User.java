@@ -1,8 +1,12 @@
 package bin.Models;
 
+import org.springframework.context.annotation.Lazy;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
+import java.util.Set;
 
 /**
  * 用户信息实体类
@@ -48,12 +52,24 @@ public class User implements Serializable {
     private String password;//密码,(字母和常用符号组成)
     @Column( name = "email_token", nullable = false)
     private String email_token;//y用户邮箱验证token字段
+    //用户与汽车一对多关联
+    @OneToMany(targetEntity = Car.class,fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id",referencedColumnName = "id")
+    private List<Car> cars;
     public User() {
         System.out.println("user读取成功");
     }
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
     }
 
     public int getId() {

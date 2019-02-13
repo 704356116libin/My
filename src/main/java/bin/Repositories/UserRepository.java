@@ -30,7 +30,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	/**
 	 * 查询所有用户信息
 	 */
-	@Query(value = "SELECT * FROM v_user order by id limit ?1,?2 ",nativeQuery = true)
+	@Query(value = "SELECT * FROM user order by id limit ?1,?2 ",nativeQuery = true)
 	List<User> showUser(int page, int limit);
 	/**
 	 * 查询用户数据总数
