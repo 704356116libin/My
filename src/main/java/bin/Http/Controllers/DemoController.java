@@ -51,7 +51,11 @@ public class DemoController extends ActionSupport{
         //自关联测试
         List<Classify> classifies=classifyImpl.getClassifyById(1);
 //        System.out.println(classifies.get(0).getChild_nodes().get(0).getChild_nodes().get(0).getChild_nodes());
-        digui_classify(classifies.get(0));
+        if(classifies.size()!=0){
+            digui_classify(classifies.get(0));
+        }else{
+            System.out.println("暂无数据");
+        }
        return "6666";
      }
 
