@@ -2,6 +2,7 @@ package bin.Models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 汽车模型类(测试User关系)
@@ -23,8 +24,8 @@ public class Car implements Serializable {
 
     @Column( name = "name",nullable = false)
     private String name;//汽车名字
-    @OneToOne(targetEntity = User.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id",referencedColumnName = "id",insertable=true,unique=true)
+    @ManyToOne(targetEntity = User.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id",referencedColumnName = "id")
     private User user;
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -32,6 +33,7 @@ public class Car implements Serializable {
     public Car() {
         System.out.println("Car 模型装配成功");
     }
+
     public User getUser() {
         return user;
     }

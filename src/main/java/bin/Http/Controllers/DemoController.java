@@ -36,7 +36,8 @@ public class DemoController extends ActionSupport{
         CarImpl carImpl=context.getBean("carImpl",CarImpl.class);
         ClassifyImpl classifyImpl=context.getBean("classifyImpl",ClassifyImpl.class);
         //一对一测试
-//        System.out.println(carImpl.getCarById(3).get(0).getUser().getName());
+        //多对一测试
+        System.out.println(carImpl.getCarById(3).get(0).getUser().getName());
         //一对多测试
 //        List<User> users=userTool.getAllUser(0,10);
 //        Iterator<User> it= users.iterator();
@@ -49,13 +50,12 @@ public class DemoController extends ActionSupport{
 //            }
 //        }
         //自关联测试
-        List<Classify> classifies=classifyImpl.getClassifyById(1);
-//        System.out.println(classifies.get(0).getChild_nodes().get(0).getChild_nodes().get(0).getChild_nodes());
-        if(classifies.size()!=0){
-            digui_classify(classifies.get(0));
-        }else{
-            System.out.println("暂无数据");
-        }
+//        List<Classify> classifies=classifyImpl.getClassifyById(1);
+//        if(classifies.size()!=0){
+//            digui_classify(classifies.get(0));
+//        }else{
+//            System.out.println("暂无数据");
+//        }
        return "6666";
      }
 
@@ -73,7 +73,6 @@ public class DemoController extends ActionSupport{
                     System.out.println(classify1.getId());
                     digui_classify(classify1);
                 }
-
         }
      }
 }
