@@ -1,5 +1,6 @@
 package bin.Http.Controllers;
 
+import bin.Impls.CarFactoryImpl;
 import bin.Impls.CarImpl;
 import bin.Impls.ClassifyImpl;
 import bin.Impls.UserImpl;
@@ -35,6 +36,7 @@ public class DemoController extends ActionSupport{
         UserImpl userTool=context.getBean("userImpl",UserImpl.class);
         CarImpl carImpl=context.getBean("carImpl",CarImpl.class);
         ClassifyImpl classifyImpl=context.getBean("classifyImpl",ClassifyImpl.class);
+        CarFactoryImpl carFactoryImpl=context.getBean("carFactoryImpl",CarFactoryImpl.class);
         //一对一测试
         //多对一测试
         System.out.println(carImpl.getCarById(3).get(0).getUser().getName());
@@ -56,6 +58,15 @@ public class DemoController extends ActionSupport{
 //        }else{
 //            System.out.println("暂无数据");
 //        }
+        //多对多测试
+        List<Car> cars=carFactoryImpl.getCarFactoryById(1).get(0).getCars();
+//        System.out.println(cars.size());
+        Iterator<Car> it= cars.iterator();
+        while (it.hasNext()){
+                Car car=it.next();
+                System.out.println(car.getId());
+                System.out.println("汽车-"+car.getName()+"所对应的用户名为:");
+        }
        return "6666";
      }
 
