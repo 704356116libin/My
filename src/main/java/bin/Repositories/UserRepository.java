@@ -2,6 +2,7 @@ package bin.Repositories;
 
 import bin.Models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.stereotype.Repository;
@@ -31,10 +32,22 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	 * 查询所有用户信息
 	 */
 	@Query(value = "SELECT * FROM user order by id limit ?1,?2 ",nativeQuery = true)
-	List<User> showUser(int page, int limit);
+	List<User> showUser(int offset, int limit);
 	/**
 	 * 查询用户数据总数
 	 */
 	@Query(value = "select count(*)from user ",nativeQuery = true)
 	int getUserCount();
+	@Query(value = "delete from user where id=?1",nativeQuery = true)
+	int  deleteUser(int id);//根据id删除用户
+//	@Modifying
+//	void  updateUser(User user);//更新用户信息
+
+	/**
+	 * 添加用户
+	 * @param user
+	 * @return
+	 */
+//	@Query(value = "insert into user()",nativeQuery = true)
+//	int  addUser(User user);
 }
